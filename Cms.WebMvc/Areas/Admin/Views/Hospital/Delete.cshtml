@@ -1,0 +1,45 @@
+﻿@model Cms.Entities.Concrete.Dtos.HospitalDtos.HospitalDto
+
+@{
+  Layout = "_AdminLayout";
+  ViewBag.Title = "Hospital Delete";
+}
+
+<div class="row">
+  <div class="col-xxl-6">
+    <div class="card card-xxl-stretch">
+      <div class="card-header">
+        <h3>Delete Hospital</h3>
+      </div>
+      <div class="card-body">
+        <form asp-area="admin" asp-controller="Hospital" asp-action="Delete" id="form-hospital-delete">
+          <input type="hidden" asp-for="Id" />
+          <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" disabled />
+          </div>
+          <div class="mb-3">
+            <label asp-for="CityId" class="form-label">CityId</label>
+            <input asp-for="CityId" class="form-control" disabled />
+          </div>
+          <div class="mb-6 form-check">
+            <input asp-for="IsActive" class="form-check-input" disabled />
+            <label asp-for="IsActive" class="form-check-label">@Html.DisplayNameFor(model => model.IsActive)</label>
+          </div>
+          <br />
+          <a class="btn btn-secondary" asp-area="Admin" asp-controller="Category" asp-action="Index"><span class="fas fa-back"></span> Return</a>
+          <button class="btn btn-danger" id="btnDelete"><span class="fas fa-hospital"></span> Delete</button>
+          <button type="submit" class="btn btn-danger" id="btnDelete"><span class="fas fa-times"></span> Delete Completely</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts{
+  <script>
+    $('btnDelete').click(function(){
+      Swal.fire('Hospital deleted succesfully');
+    });
+  </script>
+}

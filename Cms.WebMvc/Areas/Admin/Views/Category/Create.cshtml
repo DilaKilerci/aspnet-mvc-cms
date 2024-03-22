@@ -1,0 +1,39 @@
+﻿@model Cms.Entities.Concrete.Dtos.CategoryDtos.CategoryAddDto
+
+@{
+  Layout = "_AdminLayout";
+  ViewBag.Title = "Category Create";
+}
+
+<div class="row">
+  <div class="col-xxl-6">
+    <div class="card card-xxl-stretch">
+      <div class="card-header">
+        <h3>Create Category</h3>
+      </div>
+      <!--<input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+      <div asp-validation-summary="All" class="text-danger"> </div>-->
+        <form asp-area="admin" asp-controller="Category" asp-action="Create" id="form-category-create">
+          <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+          </div>
+          <div class="mb-6 form-check">
+            <input asp-for="IsActive" class="form-check-input" />
+            <label asp-for="IsActive" class="form-check-label">@Html.DisplayNameFor(model => model.IsActive)</label>
+          </div>
+          <br />
+          <a class="btn btn-secondary" asp-area="Admin" asp-controller="Category" asp-action="Index"><span class="fas fa-times"></span>   Return</a>
+          <button type="submit" class="btn btn-success" id="btnSave"><span class="fas fa-save"></span>   Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+

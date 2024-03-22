@@ -1,0 +1,82 @@
+﻿@model Cms.Entities.Concrete.Dtos.AdminDtos.AdminLoginDto
+
+@{
+	Layout = "_LoginLayout";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="~/login-form-19/css/style.css">
+	<style>
+		body {
+			background-color: white;
+		}
+	</style>
+</head>
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Welcome!</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap py-5">
+						<!--<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/bg.jpg);"></div>
+						<h3 class="text-center mb-0">Welcome</h3>
+						<p class="text-center">Sign in by entering the information below</p>-->
+						<form asp-controller="Login" asp-action="Index" method="post">
+							<div class="form-group">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+								<input type="email" class="form-control" name="Email" placeholder="Email" asp-for="Email" required>
+							</div>
+							<div class="form-group">
+								<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+								<input type="password" class="form-control" name="Password" placeholder="Password" asp-for="Password" required>
+							</div>
+							<div class="form-group d-md-flex">
+								<div class="w-100 text-md-right">
+									<a href="#">Forgot Password</a>
+								</div>
+								<div class="w-100 text-md-right">
+									<label>
+										<input type="checkbox" name="KeepLoggedIn" asp-for="KeepLoggedIn" />
+										Remember me
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<button type="submit" class="btn form-control btn-primary rounded submit px-3">Login</button>
+							</div>
+
+							@if (ViewData["ValidateMessage"] != null) {
+								<br/>
+								<br/>
+								<label>@ViewData["ValidateMessage"]</label>
+							}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="~login-form-19/js/jquery.min.js"></script>
+	<script src="~login-form-19/js/popper.js"></script>
+	<script src="~login-form-19/js/bootstrap.min.js"></script>
+	<script src="~login-form-19/js/main.js"></script>
+
+</body>
+</html>
+

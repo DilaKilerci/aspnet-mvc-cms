@@ -1,0 +1,21 @@
+﻿@model Cms.Entities.Concrete.Dtos.CategoryDtos.CategoryListDto
+
+<div class="container">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+	
+		@foreach (var category in Model.Categories)
+	{
+		<div class="col">
+			<div class="card">
+					<img src="https://www.iconbunny.com/icons/media/catalog/product/cache/2/thumbnail/600x/1b89f2fc96fc819c2a7e15c7e545e8a9/2/5/2522.1-doctors-icon-iconbunny.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">@category.Name</h5>
+					<p class="card-text">@category.Description</p>
+				</div>
+			</div>
+		</div>
+		}
+</div>
+</div>
+
+

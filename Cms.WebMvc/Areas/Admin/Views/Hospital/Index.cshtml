@@ -1,0 +1,106 @@
+﻿@using Cms.Shared.Utilities.Results.Complex_Types
+@model Cms.Entities.Concrete.Dtos.HospitalDtos.HospitalListDto
+
+@{
+	Layout = "_AdminLayout";
+	ViewBag.Title = "Hospital Index";
+
+}
+
+@{
+	if (Model.ResultStatus == ResultStatus.Success)
+	{
+		<div class="card mb-4 mt-2">
+			<div class="card-header">
+				<i class="fas fa-table mr-1"></i>
+				List of Hospitals
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 mt-3 mb-3">
+						<button type="button" class="btn btn-secondary">
+							<a asp-area="Admin" asp-controller="Hospital" asp-action="Create">Add Hospital</a>
+
+						</button>
+					</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="hospitalsTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>City</th>
+								<th>Status</th>
+								<th>Deleted date</th>
+								<th>Created Date</th>
+								<th>Created User</th>
+								<th>Last Modified Date</th>
+								<th>Last Modified User</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>City</th>
+								<th>Status</th>
+								<th>Deleted</th>
+								<th>Created Date</th>
+								<th>Created User</th>
+								<th>Last Modified Date</th>
+								<th>Last Modified User</th>
+								<th>Actions</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							@foreach (var hospital in Model.Hospitals)
+							{
+								<tr>
+									<td>@hospital.Id</td>
+									<td>@hospital.Name</td>
+									<td>@hospital.CityId</td>
+									<td>@hospital.IsActive</td>
+									<td>@hospital.IsDeleted</td>
+									<td>@hospital.CreatedDate.ToShortDateString()</td>
+									<td>@hospital.CreatedById</td>
+									<td>@hospital.ModifiedDate.ToShortDateString()</td>
+									<td>@hospital.ModifiedById</td>
+									<td>
+										<button type="button" class="btn btn-sm btn-primary mr-2"><a class="Admin" asp-controller="Hospital" asp-action="Edit">Edit</a></button>
+										<button type="button" class="btn btn-sm btn-danger"><a class="Admin" asp-controller="Hospital" asp-action="Delete">Delete</a></button>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	}
+
+	if (Model.ResultStatus == ResultStatus.Error)
+	{
+		<div class="alert alert-danger mt-3 mr-3">
+			@Model.Message <br />
+			<a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Click For Directed</a>
+		</div>
+	}
+}
+
+@section Scripts{
+	<script>
+		$(document).ready(function(){
+			$('#hospitalsTable').DataTable();
+		});
+	</script>
+
+}

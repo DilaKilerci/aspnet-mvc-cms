@@ -1,0 +1,120 @@
+﻿@using Cms.Shared.Utilities.Results.Complex_Types
+@model Cms.Entities.Concrete.Dtos.CategoryDtos.CategoryListDto
+
+@{
+	Layout = "_AdminLayout";
+	ViewBag.Title = "Category Index";
+
+}
+
+@{
+	if (Model.ResultStatus == ResultStatus.Success)
+	{
+		<div class="card mb-4 mt-2">
+			<div class="card-header">
+				<i class="fas fa-table mr-1"></i>
+				List of Categories
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 mt-3 mb-3">
+						<button type="button" class="btn btn-secondary">
+							<a asp-area="Admin" asp-controller="Category" asp-action="Create">Add Category</a>
+						</button>
+						<button type="button" class="btn btn-secondary">
+							<a asp-area="Admin" asp-controller="Category" asp-action="DeleteHard">Click For Deleted Categories</a>
+						</button>
+					</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="categoriesTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Status</th>
+								<th>Created Date</th>
+								<th>Created User</th>
+								<th>Last Modified Date</th>
+								<th>Last Modified User</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Status</th>
+								<th>Created Date</th>
+								<th>Created User</th>
+								<th>Last Modified Date</th>
+								<th>Last Modified User</th>
+								<th>Actions</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							@foreach (var category in Model.Categories)
+							{
+								<tr>
+									<td>@category.Id</td>
+									<td>@category.Name</td>
+									<td>@category.Description</td>
+									<td>@category.IsActive</td>
+									<td>@category.CreatedDate.ToShortDateString()</td>
+									<td>@category.CreatedById</td>
+									<td>@category.ModifiedDate.ToShortDateString()</td>
+									<td>@category.ModifiedById</td>
+									<td>
+										<button type="button" class="btn btn-sm btn-primary mr-2"><a class="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id">Edit</a></button>
+										<button type="button" class="btn btn-sm btn-danger"><a class="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id">Delete</a></button>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	}
+
+	if (Model.ResultStatus == ResultStatus.Error)
+	{
+		<div class="alert alert-danger mt-3 mr-3">
+			@Model.Message <br />
+			<a class="alert-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Click For Directed</a>
+		</div>
+	}
+}
+
+@section Scripts{
+	<script>
+		$(document).ready(function () {
+			$('#categoriesTable').DataTable({
+				dom: 'Bfrtip',
+				//buttons: [
+				//	{
+				//		text: 'MyButton',
+				//		action: function (e, dt, node, config) {
+				//			alert('Button actived');
+				//		}
+				//	},
+				//	{
+				//		text: 'MyButton',
+				//		action: function (e, dt, node, config) {
+				//			alert('Button actived');
+				//		}
+				//	}
+				//]
+			});
+		});
+	</script>
+                }

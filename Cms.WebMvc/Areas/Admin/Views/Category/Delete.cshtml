@@ -1,0 +1,40 @@
+﻿@model Cms.Entities.Concrete.Dtos.CategoryDtos.CategoryDto 
+
+@{
+  Layout = "_AdminLayout";
+  ViewBag.Title = "Category Delete";
+}
+
+<div class="row">
+  <div class="col-xxl-6">
+    <div class="card card-xxl-stretch">
+      <div class="card-header">
+        <h3>Delete Category</h3>
+      </div>
+      <div class="card-body">
+        <form asp-area="admin" asp-controller="Category" asp-action="Delete" id="form-category-delete">
+          <input type="hidden" asp-for="Id" name="categoryId" />
+          <input type="hidden" name="modifiedById" value="1" />
+          <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" disabled />
+          </div>
+          <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" class="form-control" disabled />
+          </div>
+          <div class="mb-6 form-check">
+            <input asp-for="IsActive" class="form-check-input" disabled />
+            <label asp-for="IsActive" class="form-check-label">@Html.DisplayNameFor(model => model.IsActive)</label>
+          </div>
+          <br />
+          <a class="btn btn-secondary" asp-area="Admin" asp-controller="Category" asp-action="Index"><span class="fas fa-back"></span> Return</a>
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+}

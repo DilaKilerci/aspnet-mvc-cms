@@ -1,0 +1,40 @@
+﻿@model Cms.Entities.Concrete.Dtos.HospitalDtos.HospitalUpdateDto
+
+@{
+  Layout = "_AdminLayout";
+  ViewBag.Title = "Edit Hospital";
+}
+
+<div class="row">
+  <div class="col-xxl-6">
+    <div class="card card-xxl-stretch">
+      <div class="card-header">
+        <h3>Edit Hospital</h3>
+      </div>
+      <div class="card-body">
+        <form asp-area="admin" asp-controller="Hospital" asp-action="Edit" id="form-Hospital-edit">
+          <div class="mb-3">
+            <label asp-for="Name" class="form-label">Hospital Name:</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+            <label asp-for="CityId" class="form-label">Description:</label>
+            <input asp-for="CityId" class="form-control" />
+            <span asp-validation-for="CityId" class="text-danger"></span>
+          </div>
+          <div class="mb-6 form-check">
+            <input asp-for="IsActive" class="form-check-input" />
+            <label asp-for="IsActive" class="form-check-label">@Html.DisplayNameFor(model => model.IsActive)</label>
+          </div>
+          <br />
+          <a class="btn btn-secondary" asp-area="Admin" asp-controller="Hospital" asp-action="Index"><span class="fas fa-times"></span> Cancel</a>
+          <button type="submit" class="btn btn-primary" id="btnSave"><span class="fas fa-save"></span> Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+}
