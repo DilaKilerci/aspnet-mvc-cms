@@ -13,7 +13,7 @@ namespace Cms.Entities.Concrete
   {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ICollection <Doctor> Doctors { get; set; }
+        public ICollection <User> Users { get; set; }
         public ICollection <Article> Articles { get; set; }
         public ICollection <Appointment> Appointments { get; set; }
 

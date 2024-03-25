@@ -17,8 +17,8 @@ namespace Cms.Services.Abstract
 		Task<IDataResult<CommentListDto>> GetAllByNonDeletedAndActive();
 		Task<IDataResult<CommentListDto>> GetAllByArticle(int articleId);
 		Task<IDataResult<CommentListDto>> GetAllByDoctor(int doctorId);
-		Task<IResult> Add(CommentAddDto commentAddDto, int createdById);
-		Task<IResult> Update(CommentUpdateDto commentUpdateDto, int modifiedById);
+		Task<IResult> Add(CommentDto commentAddDto, int createdById);
+		Task<IResult> Update(CommentDto commentUpdateDto, int modifiedById);
 		Task<IResult> Delete(int articleId, int modifiedById);
 		Task<IResult> HardDelete(int commentId);
 	}

@@ -19,7 +19,6 @@ namespace Cms.Data.Concrete.EntityFramework.Mappings
       builder.Property(c => c.Text).HasMaxLength(500);
       builder.HasOne<Article>(c => c.Article).WithMany(a => a.Comments).HasForeignKey(c => c.ArticleId);
       builder.HasOne<User>(c => c.User).WithMany(a => a.Comments).HasForeignKey(c => c.UserId);
-      builder.HasOne<Doctor>(c => c.Doctor).WithMany(a => a.Comments).HasForeignKey(c => c.DoctorId);
       builder.Property(c => c.CreatedById).IsRequired();
       builder.Property(c => c.ModifiedById).IsRequired();
       builder.Property(c => c.CreatedDate).IsRequired();

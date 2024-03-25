@@ -56,7 +56,6 @@ namespace Cms.Services.Concrete
     public async Task<IDataResult<ArticleDto>> Get(int articleId)
     {
       var article = await _context.Articles
-                                  .Include(a => a.Doctor)
                                   .Include(a => a.Category)
                                   .SingleOrDefaultAsync(x => x.Id == articleId);
 
@@ -74,7 +73,6 @@ namespace Cms.Services.Concrete
     public async Task<IDataResult<ArticleListDto>> GetAll()
     {
       var articles = await _context.Articles
-                          .Include(x => x.Doctor)
                           .Include(a => a.Category).ToListAsync();
       if (articles.Any())
       {
@@ -94,7 +92,6 @@ namespace Cms.Services.Concrete
       if (result)
       {
         var articles = await _context.Articles
-                                      .Include(a => a.Doctor)
                                       .Include(a => a.Category)
                                       .Where(a => a.CategoryId == categoryId && !a.IsDeleted && a.IsActive)
                                       .ToListAsync();
@@ -115,7 +112,6 @@ namespace Cms.Services.Concrete
     public async Task<IDataResult<ArticleListDto>> GetAllByNonDeleted()
     {
       var articles = await _context.Articles
-                                    .Include(x => x.Doctor)
                                     .Include(a => a.Category)
                                     .Where(a => !a.IsDeleted)
                                     .ToListAsync();
@@ -134,7 +130,6 @@ namespace Cms.Services.Concrete
     public async Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAndActive()
     {
       var articles = await _context.Articles
-                                    .Include(x => x.Doctor)
                                     .Include(a => a.Category)
                                     .Where(a => !a.IsDeleted && a.IsActive)
                                     .ToListAsync();

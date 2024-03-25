@@ -11,8 +11,7 @@ namespace Cms.Entities.Concrete
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public ICollection<Doctor> Doctors { get; set; }
-		public ICollection<Hospital> Hospitals { get; set; }
 		public ICollection<User> Users { get; set; }
+		public ICollection<Hospital> Hospitals { get; set; }
 	}
 }

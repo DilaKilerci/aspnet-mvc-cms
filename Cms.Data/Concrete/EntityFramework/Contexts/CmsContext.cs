@@ -8,13 +8,11 @@ namespace Cms.Data.EntityFramework.Contexts
 
   public class CmsContext : DbContext
   {
-    public DbSet<Admin> Admins { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
     public DbSet<Article> Articles { get; set; }
     public DbSet<Category> Categories { get; set; }
 		public DbSet<City> Cities { get; set; }
 		public DbSet<Comment> Comments { get; set; }
-    public DbSet<Doctor> Doctors { get; set; }
     public DbSet<Hospital> Hospitals { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<User> Users { get; set; }
@@ -30,12 +28,10 @@ namespace Cms.Data.EntityFramework.Contexts
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 			modelBuilder.ApplyConfiguration(new CityMap());
-			modelBuilder.ApplyConfiguration(new AdminMap());
       modelBuilder.ApplyConfiguration(new AppointmentMap());
       modelBuilder.ApplyConfiguration(new ArticleMap());
       modelBuilder.ApplyConfiguration(new CategoryMap());
       modelBuilder.ApplyConfiguration(new CommentMap());
-      modelBuilder.ApplyConfiguration(new DoctorMap());
       modelBuilder.ApplyConfiguration(new HospitalMap());
       modelBuilder.ApplyConfiguration(new RoleMap());
       modelBuilder.ApplyConfiguration(new UserMap());

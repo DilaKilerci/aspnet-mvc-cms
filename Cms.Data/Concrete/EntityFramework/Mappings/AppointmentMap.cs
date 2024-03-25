@@ -19,8 +19,7 @@ namespace Cms.Data.Concrete.EntityFramework.Mappings
       builder.Property(a=>a.AppointmentDate).HasColumnType("datetime");
       builder.HasOne<Hospital>(a => a.Hospital).WithMany(h => h.Appointments).HasForeignKey(a => a.HospitalId);
       builder.HasOne<Category>(a => a.Category).WithMany(h => h.Appointments).HasForeignKey(a => a.CategoryId);
-      builder.HasOne<Doctor>(a => a.Doctor).WithMany(h => h.Appointments).HasForeignKey(a => a.DoctorId);
-      builder.HasOne<User>(a => a.User).WithMany(h => h.Appointments).HasForeignKey(a => a.UserId);
+      builder.HasOne<User>(a => a.User).WithMany(h => h.Appointments).HasForeignKey(a => a.DoctorId);
       builder.HasOne<WorkingHour>(a => a.WorkingHour).WithMany(h => h.Appointments).HasForeignKey(a => a.WorkingHourId);
 
       builder.HasData(new Appointment

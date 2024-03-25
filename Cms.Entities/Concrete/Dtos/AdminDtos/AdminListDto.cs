@@ -9,6 +9,6 @@ namespace Cms.Entities.Concrete.Dtos.AdminDtos
 {
     public class AdminListDto : DtoGetBase
     {
-        public IList<Admin> Admins { get; set; }
+        public IList<User> Users { get; set; }
     }
 }

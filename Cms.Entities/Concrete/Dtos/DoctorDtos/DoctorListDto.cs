@@ -9,6 +9,6 @@ namespace Cms.Entities.Concrete.Dtos.DoctorDtos
 {
 	public class DoctorListDto:DtoGetBase
 	{
-        public IList<Doctor> Doctors { get; set; }
+        public IList<User> Users { get; set; }
     }
 }
