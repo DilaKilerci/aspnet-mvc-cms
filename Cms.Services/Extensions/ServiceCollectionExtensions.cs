@@ -15,12 +15,9 @@ namespace Cms.Services.Extensions
 		public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection)
 		{
 			serviceCollection.AddDbContext<CmsContext>();
-			serviceCollection.AddScoped<IAdminService, AdminManager>();
 			serviceCollection.AddScoped<IAppointmentService, AppointmentManager>();
 			serviceCollection.AddScoped<IArticleService, ArticleManager>();
 			serviceCollection.AddScoped<ICategoryService, CategoryManager>();
-			serviceCollection.AddScoped<ICommentService, CommentManager>();
-			serviceCollection.AddScoped<IDoctorService, DoctorManager>();
 			serviceCollection.AddScoped<IHospitalService, HospitalManager>();
 			serviceCollection.AddScoped<IRoleService, RoleManager>();
 			serviceCollection.AddScoped<IUserService, UserManager>();

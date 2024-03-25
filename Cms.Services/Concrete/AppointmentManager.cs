@@ -62,7 +62,6 @@ namespace Cms.Services.Concrete
 		public async Task<IDataResult<AppointmentDto>> Get(int appointmentId)
 		{
 			var appointment = await _context.Appointments
-																	.Include(a => a.Doctor)
 																	.Include(a => a.Category)
 																	.Include(a => a.User)
 																	.Include(a => a.Hospital)
@@ -82,7 +81,6 @@ namespace Cms.Services.Concrete
 		public async Task<IDataResult<AppointmentListDto>> GetAll()
 		{
 			var apponitments = await _context.Appointments
-													.Include(a => a.Doctor)
 																	.Include(a => a.Category)
 																	.Include(a => a.User)
 																	.Include(a => a.Hospital).ToListAsync();
@@ -104,7 +102,6 @@ namespace Cms.Services.Concrete
 			if (result)
 			{
 				var appointments = await _context.Appointments
-																			.Include(a => a.Doctor)
 																	.Include(a => a.Category)
 																	.Include(a => a.User)
 																	.Include(a => a.Hospital)
@@ -126,7 +123,6 @@ namespace Cms.Services.Concrete
 		public async Task<IDataResult<AppointmentListDto>> GetAllByNonDeleted()
 		{
 			var appointments = await _context.Appointments
-																		.Include(a => a.Doctor)
 																	.Include(a => a.Category)
 																	.Include(a => a.User)
 																	.Include(a => a.Hospital)
@@ -147,7 +143,6 @@ namespace Cms.Services.Concrete
 		public async Task<IDataResult<AppointmentListDto>> GetAllByNonDeletedAndActive()
 		{
 			var appointments = await _context.Appointments
-																		.Include(a => a.Doctor)
 																	.Include(a => a.Category)
 																	.Include(a => a.User)
 																	.Include(a => a.Hospital)

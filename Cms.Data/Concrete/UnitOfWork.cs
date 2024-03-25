@@ -13,12 +13,10 @@ namespace Cms.Data.Concrete
   public class UnitOfWork : IUnitOfWork
   {
   private readonly CmsContext _context;
-    private readonly EfAdminRepository _adminRepository;
     private readonly EfAppointmentRepository _appointmentRepository;
     private readonly EfArticleRepository _articleRepository;
     private readonly EfCategoryRepository _categoryRepository;
     private readonly EfCommentRepository _commentRepository;
-    private readonly EfDoctorRepository _doctorRepository;
     private readonly EfHospitalRepository _hospitalRepository;
     private readonly EfRoleRepository _roleRepository;
     private readonly EfUserRepository _userRepository;
@@ -30,7 +28,6 @@ namespace Cms.Data.Concrete
 
     
 
-    public IAdminRepository Admins => _adminRepository ?? new EfAdminRepository(_context);
 
     public IAppointmentRepository Appointments => _appointmentRepository ?? new EfAppointmentRepository(_context);
 
@@ -40,7 +37,6 @@ namespace Cms.Data.Concrete
 
     public ICommentRepository Comments => _commentRepository ?? new EfCommentRepository(_context);
 
-    public IDoctorRepository Doctors => _doctorRepository ?? new EfDoctorRepository(_context);
 
     public IHospitalRepository Hospitals => _hospitalRepository ?? new EfHospitalRepository(_context);
 

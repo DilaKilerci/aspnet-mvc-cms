@@ -26,7 +26,7 @@ namespace Cms.Data.Concrete.EntityFramework.Mappings
       builder.Property(a => a.IsActive).IsRequired();
       builder.Property(a => a.IsDeleted).IsRequired();
       builder.HasOne<Category>(a => a.Category).WithMany(c => c.Articles).HasForeignKey(a => a.CategoryId);
-      builder.HasOne<Doctor>(a => a.Doctor).WithMany(d => d.Articles).HasForeignKey(a => a.DoctorId);
+      builder.HasOne<User>(a => a.User).WithMany(d => d.Articles).HasForeignKey(a => a.DoctorId);
       builder.ToTable("Articles");
       builder.HasData(new Article
       {

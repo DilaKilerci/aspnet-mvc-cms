@@ -27,7 +27,8 @@ namespace Cms.Data.Concrete.EntityFramework.Mappings
       builder.Property(d => d.DateOfBirth).IsRequired();
       builder.Property(d => d.Email).IsRequired();
       builder.HasIndex(d => d.Email).IsUnique();
-      builder.Property(d => d.Password).IsRequired();
+      builder.Property(d => d.PasswordHash).IsRequired();
+      builder.Property(d => d.PasswordHash).HasColumnType("VARBINARY(500)");
       builder.HasOne<Role>(d => d.Role).WithMany(r => r.Users).HasForeignKey(d => d.RoleId);
 			builder.HasOne<City>(d => d.City).WithMany(h => h.Users).HasForeignKey(d => d.CityId);
 			builder.ToTable("Hospitals");
@@ -50,7 +51,7 @@ namespace Cms.Data.Concrete.EntityFramework.Mappings
         CitizenId = "12222222222",
         DateOfBirth = new DateTime(1990, 06, 7),
         Email = "user@gmail.com",
-        Password = "User.123",
+        PasswordHash = Encoding.ASCII.GetBytes("82d95ae4b384e338d7befbc64cd3e104"),
         RoleId = 3,
         IsActive = true,
         IsDeleted = false,
@@ -58,7 +59,38 @@ namespace Cms.Data.Concrete.EntityFramework.Mappings
         CreatedDate = DateTime.Now,
         ModifiedById = 1,
         ModifiedDate = DateTime.Now,
-      }
+      }, new User{
+				Id = 1,
+				Name = "Admin",
+				Surname = "Admin",
+				Email = "admin@gmail.com",
+				PasswordHash = Encoding.ASCII.GetBytes("7fe997c8d3b2dd1a1ae5e76b0acc6084"),
+				RoleId = 1,
+				IsActive = true,
+				IsDeleted = false,
+				CreatedById = 1,
+				CreatedDate = DateTime.Now,
+				ModifiedById = 1,
+				ModifiedDate = DateTime.Now,
+			}, new User{
+				Id = 9,
+				Name = "Doctor",
+				Surname = "Doctor",
+				CityId = 58,
+				Phone = "5552223344",
+				CitizenId = "11111111111",
+				DateOfBirth = new DateTime(1987, 05, 7),
+				Email = "doctor@gmail.com",
+				PasswordHash = Encoding.ASCII.GetBytes("a0e83105abec0cfae4d153cbeb0b6fa7"),
+				Picture = "https://as1.ftcdn.net/v2/jpg/01/62/59/04/1000_F_162590462_StuNG5boff6MVrZOCmbnDv8HPNfITqZl.jpg",
+				RoleId = 2,
+				IsActive = true,
+				IsDeleted = false,
+				CreatedById = 1,
+				CreatedDate = DateTime.Now,
+				ModifiedById = 1,
+				ModifiedDate = DateTime.Now,
+			}
       );
     }
   }

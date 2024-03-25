@@ -13,8 +13,8 @@ namespace Cms.Services.AutoMapper.Profiles
 	{
 		public CommentProfile()
 		{
-			CreateMap<CommentAddDto, Comment>().ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now));
-			CreateMap<CommentUpdateDto, Comment>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+			CreateMap<CommentDto, Comment>().ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(x => DateTime.Now));
+			CreateMap<CommentDto, Comment>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
 		}
 	}
 }

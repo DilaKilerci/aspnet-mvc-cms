@@ -19,6 +19,9 @@ namespace Cms.WebMvc.Controllers
 			_adminService = adminService;
 		}
 
+
+	
+
 		[HttpGet]
 		public async Task<IActionResult> Index()
 

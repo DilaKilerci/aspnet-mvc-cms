@@ -9,7 +9,6 @@ namespace Cms.Entities.Concrete.Dtos.AdminDtos
 {
     public class AdminLoginDto : DtoGetBase
     {
-        public Admin Admin { get; set; }
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

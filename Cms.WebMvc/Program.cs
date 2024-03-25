@@ -17,7 +17,7 @@ CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option => {
 option.ExpireTimeSpan = TimeSpan.FromHours(24);
 
 });
-builder.Services.AddAutoMapper(typeof(AdminProfile), typeof(AppointmentProfile), typeof(ArticleProfile),typeof(CategoryProfile), typeof(CommentProfile), typeof(DoctorProfile), typeof(HospitalProfile), typeof(RoleProfile),typeof(UserProfile));
+builder.Services.AddAutoMapper(typeof(AppointmentProfile), typeof(ArticleProfile),typeof(CategoryProfile), typeof(CommentProfile),typeof(HospitalProfile), typeof(RoleProfile),typeof(UserProfile));
 
 
 builder.Services.AddScoped<IValidator<CategoryAddDto>, CategoryAddDtoValidator>();
